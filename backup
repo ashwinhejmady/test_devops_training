@@ -1,0 +1,51 @@
+    1  sudo apt update -y
+    2  sudo apt upgrade -y
+    3  sudo apt-get install openssh-server -y
+    4  ifconfig
+    5  sudo apt install net-tools -y
+    6  init 0
+    7  sudo apt update -y
+    8  sudo apt upgrade -y
+    9  sudo apt update -y
+   10  apt list --upgradable 
+   11  init 0
+   12  cat /etc/os-release 
+   13  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+   14  sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+   15  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+   16  sudo apt-get install curl 
+   17  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+   18  sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+   19  sudo apt update
+   20  egrep -c '(vmx|svm)' /proc/cpuinfo
+   21  kvm-ok
+   22  sudo apt install -y cpu-checker
+   23  kvm-ok
+   24  sudo systemctl enable --now libvirtd
+   25  sudo systemctl start libvirtd
+   26  sudo systemctl status libvirtd
+   27  sudo usermod -aG kvm $USER
+   28  sudo usermod -aG libvirt $USER
+   29  cd /etc/netplan/
+   30  ls
+   31  sudo vi /etc/netplan/01-netcfg.yaml
+   32  sudo netplan apply
+   33  ip a
+   34  sudo systemctl enable --now libvirtd
+   35  sudo systemctl status libvirtd
+   36  groups
+   37  sudo usermod -aG docker username
+   38  docker ps
+   39  docker images
+   40  docker run -dt nginx
+   41  docker ps
+   42  docker container stop agitated_golick 
+   43  docker container rm agitated_golick 
+   44  docker ps
+   45  minikube delete
+   46  minikube start --driver=docker
+   47  kubectl get nodes
+   48  kubectl get pods
+   49  minikube delete
+   50  history 
+   51  history > backup

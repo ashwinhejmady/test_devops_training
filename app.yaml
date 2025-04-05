@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dell
+  labels:
+    app: dell
+spec:
+  containers:
+  - name: app
+    image: nginx
+    ports:
+    - containerPort: 80
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: dellsvc
+spec:
+  type: LoadBalancer
+  selector:
+    app: dell
+  ports:
+  - targetPort: 80
+    port: 80
+    nodePort: 30123

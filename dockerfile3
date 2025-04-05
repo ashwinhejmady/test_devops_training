@@ -1,0 +1,7 @@
+FROM centos:8
+RUN mkdir /root/capco
+WORKDIR /root/capco
+COPY dockerfile2 /root/capco
+ENV org=wipro
+
+

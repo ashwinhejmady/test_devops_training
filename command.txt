@@ -1,0 +1,581 @@
+    1  sudo apt update -y
+    2  sudo apt upgrade -y
+    3  sudo apt-get install openssh-server -y
+    4  ifconfig
+    5  sudo apt install net-tools -y
+    6  init 0
+    7  sudo apt update -y
+    8  sudo apt upgrade -y
+    9  sudo apt update -y
+   10  apt list --upgradable 
+   11  init 0
+   12  cat /etc/os-release 
+   13  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+   14  sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+   15  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+   16  sudo apt-get install curl 
+   17  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+   18  sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+   19  sudo apt update
+   20  egrep -c '(vmx|svm)' /proc/cpuinfo
+   21  kvm-ok
+   22  sudo apt install -y cpu-checker
+   23  kvm-ok
+   24  sudo systemctl enable --now libvirtd
+   25  sudo systemctl start libvirtd
+   26  sudo systemctl status libvirtd
+   27  sudo usermod -aG kvm $USER
+   28  sudo usermod -aG libvirt $USER
+   29  cd /etc/netplan/
+   30  ls
+   31  sudo vi /etc/netplan/01-netcfg.yaml
+   32  sudo netplan apply
+   33  ip a
+   34  sudo systemctl enable --now libvirtd
+   35  sudo systemctl status libvirtd
+   36  minikube start --driver=kvm --nodes 3
+   37  sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+   38  kubectl get pods
+   39  kubectl get nodes
+   40  sudo apt update
+   41  sudo apt install apt-transport-https ca-certificates curl software-properties-common
+   42  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+   43  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   44  sudo apt update
+   45  apt-cache policy docker-ce
+   46  sudo apt install docker-ce
+   47  sudo systemctl status docker
+   48  docker ps
+   49  sudo systemctl status docker
+   50  sudo usermod -aG docker ${USER}
+   51  su - ${USER}
+   52  sudo vim /etc/hosts
+   53  sudo vi /etc/hosts
+   54  sudo apt-get install vim 
+   55  sudo vim /etc/hosts
+   56  ping node01
+   57  ping node02
+   58  ping node03
+   59  cd
+   60  sudo apt-add-repository ppa:ansible/ansible
+   61  sudo apt install ansible
+   62  sudo vim /etc/ansible/hosts
+   63  ansible list hosts
+   64  ansible all -m ping
+   65  ansible all -m ping -u root
+   66  ansible-inventory --list -y
+   67  sudo su -
+   68  sudo apt update
+   69  sudo add-apt-repository --yes --update ppa:ansible/ansible
+   70  sudo apt install ansible
+   71  sudo echo "LC_ALL=en_US.UTF-8" >> /etc/environment
+   72  sudo echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+   73  sudo echo "LANG=en_US.UTF-8" > /etc/locale.conf
+   74  sudo apt-get clean && apt-get update -y
+   75  sudo apt-get install locales -y
+   76  sudo locale-gen en_US.UTF-8
+   77  ansible all
+   78  sudo vim /etc/default/locale 
+   79  sudo update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8
+   80  cd
+   81  ansible all
+   82  ansible all -m ping
+   83  ping node01
+   84  ping node03
+   85  ping node02
+   86  sudo su -i
+   87  sudo su -
+   88  ssh-keygen 
+   89  cd .ssh/
+   90  ls
+   91  ssh-copy-id -i id_rsa.pub root@node01
+   92  ssh 192.168.122.227
+   93  ssh-copy-id -i id_rsa.pub root@node01
+   94  ssh-copy-id -i id_rsa.pub node01
+   95  ubuntu
+   96  ssh-copy-id -i id_rsa.pub node01
+   97  ssh-copy-id node01
+   98  ssh-copy-id node01@node01
+   99  ssh-copy-id node02@node02
+  100  ssh-copy-id node03@node03
+  101  ansible all -m ping
+  102  ansible all -m ping -u root
+  103  ansible all -m ping -u node01
+  104  ssh-copy-id rps@node03
+  105  ssh-copy-id rps@node01
+  106  ssh-copy-id rps@node02
+  107  ansible all -m ping 
+  108  ansible all -m ping -u rps
+  109  ssh-copy-id root@node01
+  110  cd
+  111  ansible all -m ping -u root
+  112  sudo su -
+  113  sudo usermod -aG sudo ansible
+  114  sudo su ansible
+  115  ansible-inventory --list -y
+  116  ansible all -m ping
+  117  ansible all -m ping - rps
+  118  ansible all -m ping -u rps
+  119  ssh-keygen 
+  120  ssh-copy-id rps@node01
+  121  ssh-copy-id rps@node02
+  122  ssh-copy-id rps@node03
+  123  ssh-copy-id rps@node02
+  124  ssh-copy-id rps@node01
+  125  ansible all -m ping
+  126  ansible all -m ls /
+  127  ansible db -m ping 
+  128  ansible-inventory --list
+  129  ansible -m cat
+  130  ansible node02 -m command -a hostname
+  131  init 0
+  132  ping node01
+  133  ping node02
+  134  ping node03
+  135  minikube status
+  136  ssh node02@node02
+  137  root@node02
+  138  ssh node02
+  139  docker ps
+  140  docker images
+  141  docker pull redis
+  142  docker images
+  143  docker container run -dt --name capco nginx
+  144  docker ps
+  145  docker container exec -it capco bash
+  146  docker ps
+  147  docker images
+  148  docker container exec -it capco bash
+  149  docker images
+  150  docker ps
+  151  docker container run -dt --name capco2 busybox
+  152  docker ps
+  153  docker container run -dt --name capco3 busybox
+  154  docker ps
+  155  docker container stop capco2
+  156  docker ps
+  157  docker ps -a
+  158  docker container start capco2
+  159  docker ps
+  160  docker container stop capco3
+  161  docker container rm capco3
+  162  docker ps -a
+  163  history
+  164  docker container ls -aq
+  165  docker ps
+  166  docker ps -a
+  167  docker container run -dt --name capco4 busybox
+  168  docker ps
+  169  docker container ls -aq
+  170  docker container stop $(docker container ls -aq)
+  171  docker ps -a
+  172  docker container start $(docker container ls -aq)
+  173  docker ps -a
+  174  docker container stop $(docker container ls -aq)
+  175  docker container start $(docker container ls -aq)
+  176  docker ps
+  177  sudo su -
+  178  docker container stop capco4
+  179  docker images
+  180  sudo su -
+  181  docker ps
+  182  docker ps -a
+  183  docker inspect capco
+  184  docker inspect capco | less
+  185  docker ps
+  186  docker logs capco
+  187  docker ps -a
+  188  docker logs capco4
+  189  docker logs capco2
+  190  docker logs capco
+  191  docker ps -a
+  192  docker images
+  193  docker ps
+  194  docker container run -dt --name webapp -P nginx
+  195  docker ps
+  196  ifconfig
+  197  ifconfig ens160
+  198  docker container run -dt --name web1 -p 30124:80 nginx
+  199  docker ps
+  200  docker container exec -it web1 bash
+  201  docker ps
+  202  ifconfig
+  203  ifconfig ens160
+  204  docker ps
+  205  docker container exec -it capco
+  206  docker container exec -it capco bash
+  207  vim dockerfile1
+  208  cat dockerfile1 
+  209  docker build -t capcoimage:v1 . --file dockerfile1
+  210  docker images
+  211  docker container run -dt --name myapp capcoimage:v1
+  212  docker container exec -it myapp bash
+  213  docker ps
+  214  vim dockerfile2
+  215  cat dockerfile2
+  216  docker build -t apache . --file dockerfile2
+  217  docker ps
+  218  docker images
+  219  docker container run -dt- --name webapp1 -P apache
+  220  docker container run -dt --name webapp1 -P apache
+  221  docker ps
+  222  ifconfig net160
+  223  ifconfig
+  224  docker ps
+  225  docker images
+  226  docker build -t webimage . --file dockerfile3
+  227  vim dockerfile3
+  228  cat dockerfile3
+  229  docker build -t webimage . --file dockerfile3
+  230  docker container run -dt --name newapp webimage
+  231  docker -p
+  232  docker container exec -it newapp bash
+  233  docker -ps
+  234  docker ps
+  235  printenv
+  236  docker container exec -it newapp bash
+  237  docker ps
+  238  docker inspect Web1
+  239  docker ps
+  240  docker inspect web1
+  241  docker ps
+  242  docker images
+  243  vim dockerfile4
+  244  cat dockerfile4
+  245  vim dockerfile4
+  246  cat dockerfile4
+  247  docker build -t monitorimage:v1 . --file dockerfile4
+  248  docker images
+  249  docker container run -dt --name monitorapp monitorimage:v1
+  250  docker ps
+  251  docker container stop web1
+  252  docker ps
+  253  docker container start web1
+  254  docker ps
+  255  docker images
+  256  docker login
+  257  docker tag capcoimage:v1 ashwinhejmady/capcoApr01training:v1
+  258  docker tag capcoimage:v1 ashwinhejmady/capcoapr01training:v1
+  259  docker push ashwinhejmady/capcoapr01training:v1
+  260  docker pull mahijs/fisimage:v1
+  261  docker images
+  262  docker search capco
+  263  docker search capcoapr
+  264  docker ps
+  265  docker help
+  266  docker version 
+  267  docker version capco
+  268  top
+  269  docker images
+  270  docker ps
+  271  docker network ls
+  272  docker network create capcobridge
+  273  docker network ls
+  274  ifconfig | less
+  275  docker container run -dt --name day2app1 --neetwork capcobridge nginx
+  276  docker container run -dt --name day2app1 --network capcobridge nginx
+  277  docker ps
+  278  docker inspect day1app1
+  279  docker inspect day2app1
+  280  docker ps
+  281  docker ps -a
+  282  docker netwotk ls
+  283  docker network ls
+  284  docker inspect bridge 
+  285  docker inspect capcobridge 
+  286  docker inspect host
+  287  docker inspect none 
+  288  docker network create --driver bridge --subnet 192.168.0.0/24 testbridge
+  289  docker network ls
+  290  docker inspect testbridge 
+  291  docker container run -dt --name day2app2 --network testbridge nginx
+  292  docker -ps
+  293  docker ps
+  294  docker stop capco
+  295  docker ps
+  296  docker images
+  297  docker ps
+  298  docker stop capco2
+  299  docker ps
+  300  docker inspect day2app2
+  301  docker inspect  testbridge 
+  302  docker ps
+  303  docker ps -a
+  304  docker container run -dt --name hostapp --network host nginx
+  305  docker container exec -it hostapp bash
+  306  docker ps
+  307  ifconfig hostapp
+  308  ifconfig
+  309  ifconfig ens160
+  310  docker ps
+  311  docker stop hostapp 
+  312  docker start -p hostapp 
+  313  docker start hostapp 
+  314  docker container stop $(docker container ls -aq)
+  315  docker container rm $(docker container ls -aq)
+  316  docker ps
+  317  docker images
+  318  docker ps -a
+  319  minikube start --driver=docker --nodes 3
+  320  kubectl get nodes
+  321  kubectl get pods -o wide
+  322  kubectl get pods -A -o wide
+  323  kebectl run webapp --image=nginx
+  324  kubectl run webapp --image=nginx
+  325  kubectl get pods -A -o wide
+  326  kubectl run dbapp --image=redis
+  327  kubectl get pods -A -o wide
+  328  kubectl exec -it webapp -- bash
+  329  kubectl describe pod webapp
+  330  kubectl get pods
+  331  kubectl exec -it dbapp -- bash
+  332  kubectl get pods
+  333  kubectl describe pod dbapp
+  334  kubectl delete pod dbapp
+  335  kubectl describe pod dbapp
+  336  kubectl get pods
+  337  kubectl get pods -A -o wide
+  338  vim pod.yaml
+  339  kubectl apply -f pod.yaml
+  340  kubectl get pods
+  341  kubectl get pods -A -o wide
+  342  kubectl describe pod app1
+  343  kubectl get pods -A -o wide
+  344  vim pod.yaml
+  345  kubectl get pods -A -o wide
+  346  kubectl describe pod app1
+  347  kubectl get pods -A -o wide
+  348  vim pod.yaml 
+  349  vim multi.yaml
+  350  cat multi.yaml 
+  351  kudectl apply -f multi.yaml 
+  352  kubectl apply -f multi.yaml 
+  353  kubectl get pods
+  354  kubectl describe pod multiapp
+  355  kubectl get pods
+  356  kubectl exec -it multiapp --bash
+  357  kubectl exec -it multiapp -- bash
+  358  kubectl exec -it multiapp -c vm2 -- bash
+  359  kubectl exec -it multiapp -c vm1 -- bash
+  360  kubectl get pods
+  361  kubectl pods
+  362  kubectl get pods
+  363  kubectl get pods --show-label
+  364  kubectl get pods --show-labels
+  365  kubectl get pods -l run=webapp
+  366  kubectl label pod app1 org=Capco
+  367  kubectl get pods --show-labels
+  368  kubectl label pod app1 type=test
+  369  kubectl get pods --show-labels
+  370  kubectl label pod app1 type-
+  371  kubectl get pods --show-label
+  372  kubectl get pods --show-labels
+  373  vim pod.yaml 
+  374  vim pod.yaml
+  375  cat pod.yaml 
+  376  kubectl apply -f pod.yaml 
+  377  vim pod.yaml 
+  378  cat pod.yaml 
+  379  kubectl apply -f pod.yaml 
+  380  vim pod.yaml 
+  381  cat pod.yaml 
+  382  kubectl apply -f pod.yaml 
+  383  vim pod.yaml 
+  384  kubectl apply -f pod.yaml 
+  385  kubectl get pods --show-labels
+  386  kubectl label pod app1 type-
+  387  kubectl get pods --show-labels
+  388  kubectl api-version
+  389  kubectl api-versions
+  390  kubectl get pods
+  391  kubectl get pods --show-labels
+  392  kubectl get deployments
+  393  kubectl get rs
+  394  vim dep.yaml
+  395  kubectl apply -f dep.yaml 
+  396  cat dep.yaml 
+  397  vim dep.yaml 
+  398  kubectl apply -f dep.yaml 
+  399  kubectl get deployments
+  400  kubectl get rs
+  401  kubectl get pods
+  402  kubectl get pods --show-labels
+  403  kubctl delete pod multiapp
+  404  kubectl delete pod multiapp
+  405  kubectl get pods --show-labels
+  406  kubectl delete pod depapp-575fb9cbf5-bxkfw
+  407  kubectl get pods --show-labels
+  408  ls 
+  409  kubectl apply -f dep.yaml 
+  410  kubectl get pods --show-labels
+  411  kubectl get deployments
+  412  kubectl get pods --show-labels
+  413  kubectl scale deployment depapp --replicas=5
+  414  kubectl get pods --show-labels
+  415  kubectl get deployments
+  416  kubectl get rs
+  417  kubectl scale deployment depapp --replicas 2
+  418  kubectl get rs
+  419  kubectl get deployments
+  420  kubectl get pods --show-labels
+  421  kubectl remove pod depapp-575fb9cbf5-lg9rv
+  422  kubectl delete pod depapp-575fb9cbf5-lg9rv
+  423  kubectl get pods --show-labels
+  424  kubectl describe deployment depapp
+  425  vim dep.yaml 
+  426  kubectl apply -f dep.yaml 
+  427  kubectl get pods
+  428  kubectl rollout status deployment depapp
+  429  kubectl get pods
+  430  kubectl get deployment
+  431  kubectl describe deployment depapp
+  432  vim dep.yaml 
+  433  kubectl apply -f dep.yaml 
+  434  kubectl get deployment
+  435  kubectl get pods
+  436  kubectl describe deployment depapp
+  437  kubectl describe deployment depapp3
+  438  kubectl get pods
+  439  kubectl rollout status deployment depapp
+  440  kubectl rollout history deployment depapp
+  441  kubectl get pods
+  442  kubectl rollout status deployment depapp
+  443  kubectl rollout status deployment depapp3
+  444  kubectl get pods
+  445  vim dep.yaml 
+  446  kubectl apply -f dep.yaml 
+  447  kubectl rollout status deployment depapp3
+  448  kubectl rollout status deployment depapp
+  449  kubectl get pods -o wide -n =kube-system
+  450  kubectl get pods -o wide -n kube-system
+  451  kubectl get ds -n kube-system
+  452  cp dep.yaml daemon.yaml
+  453  vim daemon.yaml
+  454  kubectl apply -f daemon.yaml 
+  455  kubectl get ds
+  456  kubectl get pods -o wide
+  457  kubectl delete pod capco-ds-2l6jm
+  458  kubectl get pods -o wide
+  459  kubectl describe ds capco-ds
+  460  kubectl logs capco-ds-d9jt4
+  461  kubectl get ns
+  462  kubectl get ns -n default
+  463  kubectl get ns -A
+  464  kubectl get pods 
+  465  kubectl get pods -n kube-system
+  466  kubectl get pods -n kube-node-lease
+  467  kubectl get pods -n kube-public
+  468  kubectl get pods -A
+  469  kubectl get deployments -A
+  470  kubectl get ds -A
+  471  kubectl create ns capco
+  472  kubectl get ns
+  473  kubectl run ewd --image=nginx -n capco
+  474  kubectl get ns
+  475  kubectl get pods
+  476  kubectl get pods -n capco
+  477  kubectl get pods -A
+  478  vim pod.yaml
+  479  kubectl apply -f pod.yaml -n capco
+  480  vim pod.yaml
+  481  kubectl apply -f pod.yaml -n capco
+  482  vim pod.yaml
+  483  kubectl apply -f pod.yaml -n capco
+  484  kubectl get pods -n capco
+  485  kubectl describe capco
+  486  kubectl describe -n capco
+  487  kubectl describe ns capco
+  488  vim quota.yaml
+  489  kubectl apply -f quota.yaml 
+  490  kubectl describe ns capco
+  491  kubeclt get pods -n capco
+  492  kubectl get pods -n capco
+  493  vim pod.yaml 
+  494  kubectl apply -f pod.yaml 
+  495  kubectl get pods -n capco
+  496  kubectl describe ns capco
+  497  vim pod.yaml 
+  498  kubectl apply -f pod.yaml 
+  499  kubectl get pods capco
+  500  kubectl get pods -n capco
+  501  kubectl describe ns capco
+  502  vim pod.yaml
+  503  kubectl apply -f pod.yaml 
+  504  kubectl get pods -n capco
+  505  kubectl describe ns capco
+  506  vim pod.yaml 
+  507  kubectl apply -f pod.yaml 
+  508  kubectl describe ns capco
+  509  cat quota.yaml 
+  510  kubectl apply -f pod.yaml 
+  511  kubectl get pods -wide
+  512  kubectl get pods -A
+  513  vim limit.yaml
+  514  kubectl describe ns Ashwin
+  515  kubectl apply -f limit.yaml 
+  516  kubectl create ns Ashwin
+  517  kubectl create ns ashwin
+  518  vim limit.yaml 
+  519  kubectl apply -f limit.yaml 
+  520  kubectl describe ns ashwin
+  521  kubectl run test --image=nginc -n ashwin
+  522  kubectl get pod -n ashwin
+  523  kubectl describe pod -n ashwin
+  524  kubectl get pods
+  525  kubectl get pods -n Ashwin
+  526  kubectl get pods -n ashwin
+  527  kubectl run test --image=nginx -n ashwin
+  528  kubectl run testash --image=nginx -n ashwin
+  529  kubectl get pods -n ashwin
+  530  kubectl remove pod test -n ashwin
+  531  kubectl delete pod test -n ashwin
+  532  kubectl get pods -n ashwin
+  533  kubectl describe pod -n ashwin
+  534  kuubectl describe ns ashwin
+  535  kubectl describe ns ashwin
+  536  ls 
+  537  vim limit.yaml 
+  538  kubectl apply -f limit.yaml 
+  539  kubectl describe ns ashwin
+  540  vim pod.yaml 
+  541  kubectl apply -f pod.yaml 
+  542  vim pod.yaml 
+  543  kubectl apply -f pod.yaml 
+  544  vim pod.yaml 
+  545  kubectl apply -f pod.yaml 
+  546  kubectl get service
+  547  kubectl run webserver --image=nginx --port 80
+  548  kubectl get service
+  549  kubectl expose pod webserver --type=NodePort --name websvc
+  550  kubectl get service
+  551  minicube svc websvc
+  552  minikube svc websvc
+  553  minikube service websvc
+  554  minikube service websvc --url
+  555  minikube service websvc
+  556  ls
+  557  vim app.yaml
+  558  vim svc.yaml
+  559  kubectl apply -f app.yaml 
+  560  kubectl apply -f svc.yaml 
+  561  vim svc.yaml
+  562  kubectl apply -f svc.yaml 
+  563  kubectl get svc
+  564  kubectl exec -it hpapp -- bash
+  565  minikube service hpsvc
+  566  kubectl services
+  567  kubectl get svc
+  568  vim app.yaml 
+  569  kubectl apply -f app.yaml 
+  570  vim app.yaml 
+  571  kubectl apply -f app.yaml 
+  572  kubectl get svc
+  573  minikube service dellsvc
+  574  ansible --version
+  575  sudo su - 
+  576  sudo root@node02
+  577  ls
+  578  sudo su -
+  579  ls
+  580  history
+  581  history >> command.txt

@@ -1,0 +1,9 @@
+FROM ubuntu
+RUN apt update -y
+RUN apt install net-tools -y
+RUN apt install iputils-ping -y
+RUN apt install vim -y
+RUN mkdir /capco
+RUN echo "Hello test DOCKERFILE" > /capco/file.txt
+
+

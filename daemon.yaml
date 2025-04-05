@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: capco-ds
+  labels:
+    app: dsapp
+spec:
+  template:
+    metadata:
+      labels:
+        type: dsprod
+    spec:
+      containers:
+      - name: app
+        image: nginx
+
+  selector:
+    matchLabels:
+      type: dsprod
+
