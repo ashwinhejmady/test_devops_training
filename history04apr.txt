@@ -1,0 +1,418 @@
+    1  ansible-inventory --list -y
+    2  ansible all -m ping
+    3  systemctl status sshd
+    4  ansible all -m ping
+    5  ssh-keygen 
+    6  ssh-copy-id node01
+    7  sudo adduser ansible
+    8  cd /var/lib/docker/containers/
+    9  ls
+   10  docker ps
+   11  exit
+   12  ca /var/lib/docker/containers/
+   13  cd /var/lib/docker/containers/
+   14  ls
+   15  exit
+   16  ping node 01
+   17  ping node01
+   18  ping node02
+   19  ping node03
+   20  ping node01
+   21  ssh node01@node01
+   22  ssh node02@node02
+   23  node03@node03
+   24  ssh node03@node03
+   25  ssh node01@node01
+   26  ssh node02@node02
+   27  ssh node03@node03
+   28  ssh-keygen
+   29  ssh-copy-id root@node01
+   30  ssh-copy-id root@node02
+   31  ssh-copy-id root@node03
+   32  ssh root@node01
+   33  ssh root@node02
+   34  ssh root@node03
+   35  ansible --list-hosts all
+   36  vim inventory
+   37  ansible-config init --disabled > ansible.cfg
+   38  vim ansible.cfg 
+   39  ansible web -i inventory --lists-hosts
+   40  vim inventory 
+   41  vim ansible.cfg 
+   42  ansible web -i inventory 
+   43  ansible web -i inventory --list-hosts
+   44  ansible web -i db --list-hosts
+   45  ansible db -i inventory --list-hosts
+   46  ansible capco -i inventory --list-hosts
+   47  ansible -m ping all
+   48  ansible --lists-hosts all
+   49  ansible --list-hosts all
+   50  ansible -m ping all
+   51  ansible -m ping web
+   52  ansible -m ping -i inventory web
+   53  ansible -m ping -i inventory capco
+   54  ansible -i inventory db -m command hostname
+   55  ansible -i inventory db -m command -hostname
+   56  ansible -i inventory db -m command -a hostname
+   57  ansible all -m copy -a 'content="test ansible create file" dest=/tmp/capco
+   58  '
+   59  ansible node02 -m copy -a 'src=/root/inventory dest=/opt/'
+   60  ansible node02 -m command -a 'ls /opt'
+   61  ansible node02 -m command -a 'cat /tmp/capco'
+   62  ansible node03 -m command -a 'cat /tmp/capco'
+   63  ansible node01 -m command -a 'cat /tmp/capco'
+   64  ansible node01 -m command -a 'cat /opt/inventory'
+   65  ansible node02 -m command -a 'cat /opt/inventory'
+   66  ansible node01 -m command -a 'cat > /tmp/capco'
+   67  ansible node02 -m command -a 'cat > /tmp/capco'
+   68  ansible node01 -m command -a 'cat /tmp/capco'
+   69  ansible node02 -m user -a 'name:ashwin id=1001 state=present'
+   70  ansible node02 -m user -a 'name:ashwin uid=1001 state=present'
+   71  ansible node02 -m user -a 'name=ashwin uid=1001 state=present'
+   72  ansible node02 -m user -a 'name=ashwin uid=1005 state=present'
+   73  ansible all -m user -a 'name=ashwin uid=1006 state=present'
+   74  ansible node01 -m command -a 'id ashwin'
+   75  ansible all -m command -a 'id ashwin'
+   76  ansible -doc -l
+   77  ansible -doc user
+   78  ansible-doc user
+   79  ansible allansi
+   80  qwwqqqqeeeiiooooiiom
+   81  rerere
+   82  ansible all -m user -a 'name=ashwinkumar comment"test usecase" create_home=true state=present'
+   83  ansible all -m user -a 'name=ashwinkumar comment="test usecase" create_home=true state=present'
+   84  vim run1.yaml
+   85  ansible-playbook --syntax-check run1.yaml 
+   86  ansible-playbook run1.yaml 
+   87  vim run1.yaml
+   88  vim 04apr.yaml
+   89  ansible-playbook --syntax-check 04apr.yaml 
+   90  vim 04apr.yaml
+   91  ansible-playbook --syntax-check 04apr.yaml 
+   92  ansible-playbook 04apr.yaml 
+   93  vim 04apr02.yaml
+   94  ansible-playbook --syntax-check 04apr.yaml 
+   95  ansible-playbook --syntax-check 04apr02.yaml 
+   96  ansible-playbook 04apr.yaml 
+   97  ansible-playbook 04apr02.yaml 
+   98  vim 04apr02.yaml
+   99  ansible-playbook --syntax-check 04apr02.yaml 
+  100  ansible-playbook 04apr02.yaml 
+  101  vim 04apr02.yaml
+  102  ansible-playbook --syntax-check 04apr02.yaml 
+  103  ansible-playbook 04apr02.yaml 
+  104  vim 04apr03.yaml
+  105  ansible-playbook --syntax-check 04apr03.yaml 
+  106  ansible-playbook 04apr03.yaml 
+  107  vim 04apr03.yaml
+  108  cat 04apr02.yaml
+  109  vim 04apr03.yaml
+  110  ansible-playbook --syntax-check 04apr03.yaml 
+  111  ansible-playbook 04apr03.yaml 
+  112  vim 04apr04.yaml
+  113  ansible-playbook --syntax-check 04apr04.yaml 
+  114  ansible-playbook 04apr04.yaml 
+  115  vim 04apr05.yaml
+  116  ansible-playbook --check-syntax 04apr05.yaml 
+  117  ansible-playbook --syntax-check 04apr05.yaml 
+  118  ansible-playbook 04apr05.yaml 
+  119  vim 04apr06.yaml
+  120  ansible-playbook --syntax-check 04apr06.yaml 
+  121  ansible-playbook 04apr06.yaml 
+  122  ansible-playbook 04apr06.yaml --tags hello
+  123  ansible-playbook 04apr06.yaml --tags test
+  124  ansible-playbook 04apr06.yaml --tags welcome
+  125  vim 04apr07.yaml
+  126  ansible-playbook --syntax-check 04apr07.yaml 
+  127  ansible-playbook 04apr07.yaml 
+  128  vim 04apr07.yaml
+  129  ansible-playbook --syntax-check 04apr07.yaml 
+  130  ansible-playbook 04apr07.yaml 
+  131  ansible node02 -m setup
+  132  ansible node02 -m setup -a 'filter="ansible_"'
+  133  ansible node02 -m setup -a 'filter="ansible_p"'
+  134  ansible node02 -m setup -a 'filter="ansible_user"'
+  135  ansible node02 -m setup -a 'filter="ansible_nodename"'
+  136  ansible node02 -m setup -a 'filter="ansible_architecture"'
+  137  vim 04apr08.yaml
+  138  ansible-playbook --syntax-check 04apr08.yaml 
+  139  vim 04apr08.yaml
+  140  ansible-playbook --syntax-check 04apr08.yaml 
+  141  ansible-playbook 04apr08.yaml 
+  142  vim 04apr08.yaml
+  143  ansible-playbook --syntax-check 04apr08.yaml 
+  144  ansible-playbook 04apr08.yaml 
+  145  vim 04apr08.yaml
+  146  ansible-playbook --syntax-check 04apr08.yaml 
+  147  ansible-playbook 04apr08.yaml 
+  148  vim custom.fact
+  149  vim 04apr09.yaml
+  150  ansible node02 -m setup -a 'filter=ansible_local*'
+  151  vim 04apr09.yaml
+  152  ansible node02 -m setup -a 'filter=ansible_local*'
+  153  vim custom.fact
+  154  vim 04apr09.yaml
+  155  ansible-playbook --syntax-check 04apr09.yaml 
+  156  ansible-playbook 04apr09.yaml 
+  157  ansible node02 -m setup -a 'filter=ansible_local*'
+  158  vim 04apr09.yaml
+  159  vim 04apr10.yaml
+  160  cat > index.html
+  161  ansible-playbook --syntax-check 04apr10.yaml 
+  162  vim 04apr10.yaml
+  163  ansible-playbook --syntax-check 04apr10.yaml 
+  164  ansible-playbook  04apr10.yaml 
+  165  cat 04apr09.yaml 
+  166  cat 04apr08.yaml 
+  167  ansible-vault create file.yaml
+  168  ansible-playbook --syntax-check file.yaml 
+  169  ansible-playbook file.yaml 
+  170  ansible-playbook --ask-vault-pass file.yaml 
+  171  ansible-vault edit file.yaml
+  172  ansible-playbook --ask-vault-pass file.yaml 
+  173  cd /mnt/
+  174  ls
+  175  ansible-vault edit file.yaml
+  176  cd ..
+  177  ansible-vault edit file.yaml
+  178  ls
+  179  cd ..
+  180  ls
+  181  ansible-vault encrypt 04apr09.yaml
+  182  cd tmp/
+  183  ls
+  184  cd ..
+  185  exit
+  186  ls
+  187  mkdir gittraining
+  188  cd gittraining/
+  189  git config --global user.name "ashwin"
+  190  git config --global user.email "ashwin@test.com"
+  191  git config --list
+  192  ls -a
+  193  git init
+  194  ls -a
+  195  vim capco
+  196  git status
+  197  git init
+  198  ls -a
+  199  git status
+  200  git add capco 
+  201  git status
+  202  git commit -m "first commit"
+  203  git status
+  204  vim capco2
+  205  git status 
+  206  git add .
+  207  git status 
+  208  git commit -m "second commit"
+  209  ls
+  210  git status 
+  211  ls -a
+  212  git status 
+  213  git diff capco
+  214  vim capco
+  215  git diff capco
+  216  git status 
+  217  git status capco
+  218  git commit -m "third commit"
+  219  git commit -am "third commit"
+  220  git log
+  221  git log --author="ashwin"
+  222  vim capco
+  223  git commit -am "fourth commit"
+  224  git log
+  225  got log --oneline
+  226  git log --oneline
+  227  git reset -hard c83b9b5
+  228  git reset --hard c83b9b5
+  229  git log --oneline 
+  230  ls capco
+  231  cat capco
+  232  git log
+  233  git reflog 
+  234  git log --help
+  235  git status --help
+  236  git stash --help
+  237  vim capco
+  238  git status 
+  239  git stash
+  240  git stash list
+  241  git status
+  242  cat capco
+  243  git stash drop
+  244  git status 
+  245  cat capco
+  246  vim capco
+  247  git status 
+  248  git stash
+  249  git status
+  250  git stash apply 
+  251  cat capco
+  252  git stash
+  253  cat capco
+  254  git stash apply
+  255  git commit -m "fifth commit"
+  256  git commit -am "fifth commit"
+  257  git branch
+  258  git branch capco
+  259  git branch
+  260  git checkout capco
+  261  git branch
+  262  vim capco2
+  263  git branch --help
+  264  git branch
+  265  git status 
+  266  git commit -am "test 6"
+  267  git status
+  268  cat capco2
+  269  git branch master 
+  270  git checkout master 
+  271  cat capco2
+  272  git branch
+  273  vim capco2
+  274  cat capco
+  275  cat capco2
+  276  git checkout capco
+  277  git branch
+  278  git commit -m "checkout:"
+  279  git commit -am "checkout:"
+  280  cat capco2
+  281  git checkout capco
+  282  cat capco2
+  283  git checkout master 
+  284  git merge master capco
+  285  git checkout capco
+  286  git add .
+  287  git merge master capco
+  288  git commit -am "test"
+  289  git checkout capco
+  290  vim capco2
+  291  git add
+  292  git add .
+  293  git commit -m "test test"
+  294  git status
+  295  cd
+  296  git clone -b main https://github.com/ashwinhejmady/test_devops_training.git
+  297  ls
+  298  cd test_devops_training/
+  299  ls
+  300  cat capco 
+  301  cat LICENSE 
+  302  cat capco 
+  303  git pull
+  304  cat capco 
+  305  ls
+  306  cat > capco 
+  307  cat capco 
+  308  vim capco 
+  309  git push
+  310  git status 
+  311  git add .
+  312  git commit -m "local commit"
+  313  git status
+  314  git push
+  315  git pull
+  316  ls
+  317  cat capco 
+  318  cd ..
+  319  history
+  320  ls
+  321  cd test_devops_training/
+  322  ls
+  323  cat capco 
+  324  cd ..
+  325  git pull
+  326  cd test_devops_training/
+  327  ls
+  328  git remote set-url origin https://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@github.com/ashwinhejmady/test_devops_training
+  329  git push 
+  330  vim upload_from_local
+  331  ls
+  332  git status 
+  333  git add .
+  334  git commit -m "pushed from local"
+  335  git push
+  336  git pull 
+  337  ls
+  338  cat capco 
+  339  vim capco 
+  340  git status 
+  341  git add .
+  342  git commit -am "commit from local"
+  343  git push
+  344  history
+  345  cd
+  346  java --version
+  347  mvn --version
+  348  apt update
+  349  apt install openjdk-21-jdk
+  350  apt install maven
+  351  java --version
+  352  mvn version
+  353  apt install maven
+  354  mvn --version
+  355  mvn archetype:generate -DgroupID=com.capco
+  356  mvn archetype:generate -DgroupID=com.sample -DartifactID=capcowipro -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.5 -DinteractiveMode=false
+  357  mvn archetype:generate -DgroupId=com.sample -DartifactId=capcowipro -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.5 -DinteractiveMode=false
+  358  ls
+  359  ls -R capcowipro/
+  360  ls
+  361  cp 04apr02.yaml 04apr.yaml 04apr03.yaml 04apr04.yaml gittraining/
+  362  cd gittraining/
+  363  ls
+  364  cd ..
+  365  cd capcowipro/
+  366  mvn package
+  367  ls -r
+  368  ls -T
+  369  ls -R
+  370  ls
+  371  ls target/
+  372  java -cp target/capcowipro-1.0-SNAPSHOT.jar com.sample.App 
+  373  mvn test
+  374  mvn validate 
+  375  vim src/main/java/com/sample/App.java 
+  376  java -cp target/capcowipro-1.0-SNAPSHOT.jar com.sample.App 
+  377  mvn clean install
+  378  java -cp target/capcowipro-1.0-SNAPSHOT.jar com.sample.App 
+  379  ca
+  380  cd
+  381  ls
+  382  cp 04apr02.yaml 04apr04.yaml 04apr06.yaml 04apr08.yaml 04apr10.yaml 4apr03.yaml 04apr05.yaml 04apr07.yaml 04apr09.yaml 04apr.yaml file.yaml index.html run1.yaml /test_devops_training
+  383  cp 04apr02.yaml 04apr04.yaml 04apr06.yaml 04apr08.yaml 04apr10.yaml 4apr03.yaml 04apr05.yaml 04apr07.yaml 04apr09.yaml 04apr.yaml file.yaml index.html run1.yaml /test_devops_training/
+  384  cp 04apr02.yaml 04apr04.yaml 04apr06.yaml 04apr08.yaml 04apr10.yaml 4apr03.yaml 04apr05.yaml 04apr07.yaml 04apr09.yaml 04apr.yaml file.yaml index.html run1.yaml test_devops_training/
+  385  cp 04apr02.yaml 04apr04.yaml 04apr06.yaml 04apr08.yaml 04apr10.yaml 04apr03.yaml 04apr05.yaml 04apr07.yaml 04apr09.yaml 04apr.yaml file.yaml index.html run1.yaml test_devops_training/
+  386  mvn archetype:generate -DgroupId=com.example -DartifactId=my-webapp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+  387  ls
+  388  ls test_devops_training/
+  389  ls
+  390  vim my-webapp/src/main/webapp/WEB-INF/web.xml 
+  391  vim my-webapp/src/main/webapp/index.jsp 
+  392  cd my-webapp/
+  393  vim my-webapp/src/main/webapp/WEB-INF/web.xml 
+  394  cd ..
+  395  vim my-webapp/src/main/webapp/index.jsp 
+  396  vim my-webapp/src/main/webapp/WEB-INF/web.xml 
+  397  cd my-webapp/
+  398  ls
+  399  mv pom.xml /opt/
+  400  ls
+  401  vim pom.xml
+  402  mvn clean package 
+  403  ls
+  404  mvn tomcat7:run
+  405  ls
+  406  cat pom.xml 
+  407  vim pom.xml 
+  408  mvn tomcat7:run
+  409  cd ..
+  410  ls
+  411  cd test_devops_training/
+  412  git status
+  413  git add .
+  414  git commit
+  415  git commit -am "yaml files"
+  416  git push
+  417  cd ..
+  418  history >> test_devops_training/history04apr.txt
