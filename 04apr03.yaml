@@ -1,0 +1,25 @@
+---
+- name: "install through variables"
+  hosts: all
+  vars:
+    packages:
+      - git
+      - wget
+      - curl
+
+  tasks: 
+    - name: "Update cache"
+      apt:
+        update_cache: yes
+
+    - name: "Install the packages"
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ packages }}"
+
+    - name: "start the service"
+      service:
+        name: "{{ item }}"
+        state: started
+      with_items: "{{ packages }}"

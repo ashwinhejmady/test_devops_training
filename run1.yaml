@@ -1,0 +1,11 @@
+---
+- name: "creating the first play"
+  hosts: all
+
+  tasks:
+    - name: "create a file"
+      file:
+        path: /tmp/capco.txt
+        mode: 0640
+        owner: ashwinkumar
+        state: touch

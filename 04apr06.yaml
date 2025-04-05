@@ -1,0 +1,24 @@
+---
+- name: ansible tags
+  hosts: localhost
+
+  tasks:
+    - name: "Hello world"
+      debug:
+        msg: "Hello world"
+      tags:
+        - hello
+
+    - name: "ansible test"
+      debug:
+        msg: "Welcome to ansible"
+      tags:
+        - welcome
+
+    - name: "3rd message test"
+      debug:
+        msg: "Hello world test message"
+      tags:
+        - test
+
+

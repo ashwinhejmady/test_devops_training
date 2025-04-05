@@ -1,0 +1,16 @@
+---
+- name: "Create user"
+  hosts: node03
+
+  tasks: 
+    - name: "create new user"
+      user:
+        name: "{{ item.name }}"
+        uid: "{{ item.uid }}"
+        groups: "{{ item.groups }}"
+        state: present
+      with_items:
+      - { name: ashwin2, uid: 1012, groups: "root" }
+      - { name: ashwin3, uid: 1013, groups: "root" }
+
+

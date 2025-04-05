@@ -1,0 +1,13 @@
+---
+- hosts: all
+  gather_facts: yes
+
+  tasks:
+    - debug:
+        var: ansible_facts['hostname']
+
+    - debug:
+        var: ansible_facts['default_ipv4']['address']
+
+    - debug: 
+        msg: "This system is running {{ ansible_facts['os_family'] }}"

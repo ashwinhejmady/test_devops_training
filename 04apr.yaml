@@ -1,0 +1,20 @@
+---
+- name: "creating multiple plays"
+  hosts: all
+
+  tasks:
+    - name: "Create a file"
+      file: 
+        path: /opt/hp.txt
+        mode: 0640
+        owner: ashwin
+        state: touch
+
+    - name: "zip the file"
+      archive:
+        path: /var/log
+        dest: /mnt/logbackup.tar.gz
+        format: gz
+
+
+      

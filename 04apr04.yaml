@@ -1,0 +1,14 @@
+---
+- name: "SImple list"
+  hosts: node01
+
+  tasks:
+    - name: "test 1 var"
+      debug:
+        msg: "test simple list: {{ item }}"
+      with_items:
+      - apple
+      - bottle
+      - cup
+      - phone
+

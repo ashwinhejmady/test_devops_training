@@ -1,0 +1,11 @@
+---
+- hosts: node01
+
+  tasks:
+    - name: "Check files"
+      shell: "cat /etc/passwd"
+      register: output
+
+    - name: "Print here"
+      debug:
+        var: output.stdout_lines
